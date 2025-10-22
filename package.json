@@ -1,0 +1,19 @@
+{
+  "name": "mercersburg-tour-guide",
+  "version": "1.0.0",
+  "description": "Mercersburg Tour Guide for Kids - Interactive Map",
+  "main": "index.html",
+  "scripts": {
+    "build-css": "sass css/style.scss css/style.css",
+    "watch-css": "sass --watch css/style.scss:css/style.css",
+    "dev": "sass --watch css/style.scss:css/style.css & live-server",
+    "start": "live-server"
+  },
+  "keywords": ["tour", "guide", "map", "kids", "mercersburg"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.0",
+    "live-server": "^1.2.2"
+  }
+}

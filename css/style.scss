@@ -1,0 +1,411 @@
+// 设计稿基准尺寸
+$designVwSize: 39.08;
+
+// 引入math模块
+@use "sass:math";
+
+// pxToVw 转换函数
+@function pxtovw($pxz) {
+  @if $pxz == -2 {
+    @return -1px;
+  } @else if $pxz == -1 {
+    @return -1px;
+  } @else if $pxz == 1 {
+    @return 1px;
+  } @else if $pxz == 2 {
+    @return 1px;
+  } @else {
+    @return math.div($pxz, $designVwSize) * 1vw;
+  }
+}
+
+// 重置样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+  overflow-x: hidden;
+}
+
+// Header样式
+.header {
+  height: pxtovw(200);
+  background: #E3E2E2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 pxtovw(100);
+}
+
+.header-left {
+  .logo {
+    color: #000;
+    font-size: pxtovw(40);
+    font-weight: bold;
+    letter-spacing: pxtovw(2);
+  }
+}
+
+.header-nav {
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: pxtovw(30);
+  }
+
+  .nav-item {
+    .nav-link {
+      color: #AFABAB;
+      text-decoration: none;
+      font-size: pxtovw(40);
+      font-weight: 500;
+      padding: pxtovw(8) pxtovw(16);
+      border-radius: pxtovw(20);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    &.active .nav-link {
+      color: #000;
+      font-weight: bold;
+    }
+  }
+}
+
+// 主内容区域
+.main-content {
+  margin-top: pxtovw(-10);
+  padding: pxtovw(20);
+  min-height: calc(100vh - pxtovw(60));
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+// 地图容器
+.map-container {
+  position: relative;
+  max-width: pxtovw(3508);
+  width: 100%;
+  border-radius: pxtovw(15);
+  overflow: hidden;
+}
+
+.map-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: pxtovw(15);
+  animation: fadeInMap 1.5s ease-in-out;
+}
+
+// 地图图标样式
+.map-icon {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeInIcons 0.8s ease-in-out 1.5s forwards;
+
+  &:hover {
+    transform: scale(1.2);
+    z-index: 20;
+  }
+
+  .icon-image {
+    width: pxtovw(100);
+    height: pxtovw(100);
+    filter: drop-shadow(0 pxtovw(2) pxtovw(4) rgba(0, 0, 0, 0.3));
+    transition: all 0.3s ease;
+  }
+
+  &:hover .icon-image {
+    filter: drop-shadow(0 pxtovw(4) pxtovw(8) rgba(0, 0, 0, 0.4));
+  }
+}
+
+// 详情页面样式
+.detail-content {
+  margin-top: pxtovw(0);
+  padding: pxtovw(200) pxtovw(220);
+  min-height: calc(100vh - pxtovw(200));
+  background: white;
+}
+
+.detail-container {
+  display: flex;
+  gap: pxtovw(600);
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.detail-left {
+  flex: 0 0 pxtovw(600);
+  position: relative;
+}
+
+.image-wrapper {
+  position: relative;
+  width: pxtovw(1184);
+  height: auto;
+  overflow: hidden;
+}
+
+.detail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.location-marker {
+  position: absolute;
+  top: pxtovw(80);
+  right: pxtovw(40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: pxtovw(150);
+  height: pxtovw(150);
+  z-index: 10;
+}
+
+.marker-icon {
+  width: pxtovw(180);
+  height: pxtovw(180);
+  position: absolute;
+}
+
+.marker-number {
+  position: absolute;
+  top: pxtovw(30);
+  color: #A6A6A6;
+  font-size: pxtovw(50);
+  font-weight: bold;
+  z-index: 2;
+}
+
+.detail-right {
+  flex: 1;
+  padding: pxtovw(10) 0 pxtovw(10) pxtovw(30);
+}
+
+.content-section {
+  margin-bottom: pxtovw(40);
+}
+
+.section-title {
+  position: relative;
+  padding-left: pxtovw(30);
+  font-size: pxtovw(48);
+  font-weight: bold;
+  color: #333;
+  margin-bottom: pxtovw(60);
+  line-height: 1.2;
+}
+
+.facts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.facts-list li {
+  font-size: pxtovw(32);
+  height: pxtovw(50);
+  line-height: 1.4;
+  color: #555;
+  margin-bottom: pxtovw(30);
+  padding-left: pxtovw(30);
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.facts-list li::before ,.section-title::before {
+  content: "•";
+  color: #999;
+  font-size: pxtovw(50);
+  position: absolute;
+  left: 0;
+}
+.section-title::before{
+  color: #000;
+}
+
+.activity-text,
+.ask-text {
+  font-size: pxtovw(32);
+  line-height: 1.4;
+  color: #555;
+  margin: 0;
+}
+
+.action-section {
+  margin-top: pxtovw(70);
+  margin-bottom: pxtovw(70);
+  text-align: center;
+}
+
+.stop-button {
+  width: pxtovw(850);
+  background: #A6A6A6;
+  color: #fff;
+  border: none;
+  padding: pxtovw(50) pxtovw(50);
+  border-radius: pxtovw(120);
+  font-size: pxtovw(40);
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: pxtovw(0.3);
+}
+
+// Path页面样式
+.path-content {
+  margin-top: pxtovw(0);
+  padding: pxtovw(40) pxtovw(60);
+  min-height: calc(100vh - pxtovw(200));
+  background: white;
+}
+
+.path-container {
+  position: relative;
+  max-width: pxtovw(3508);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.path-image-container {
+  position: relative;
+  width: 100%;
+  max-width: pxtovw(3508);
+}
+
+.path-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: pxtovw(15);
+  box-shadow: 0 pxtovw(8) pxtovw(25) rgba(0, 0, 0, 0.15);
+  animation: fadeInImage 1s ease-in-out;
+}
+
+.path-line-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  animation: fadeInLine 1s ease-in-out 1s forwards;
+}
+
+.path-line-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.path-point {
+  position: absolute;
+  width: pxtovw(100);
+  height: pxtovw(100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeInPoints 0.8s ease-in-out 2s forwards;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  .point-icon {
+    width: pxtovw(100);
+    height: pxtovw(100);
+    position: absolute;
+    filter: drop-shadow(0 pxtovw(2) pxtovw(4) rgba(0, 0, 0, 0.3));
+  }
+
+  .point-number {
+    position: absolute;
+    top: pxtovw(20);
+    color: #000;
+    font-size: pxtovw(36);
+    font-weight: bold;
+    z-index: 2;
+    text-shadow: 0 pxtovw(1) pxtovw(2) rgba(0, 0, 0, 0.8);
+  }
+}
+
+// 动画关键帧
+@keyframes fadeInImage {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInLine {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInPoints {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(pxtovw(20));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeInMap {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(pxtovw(30));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeInIcons {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(pxtovw(20));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+

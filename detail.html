@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Guide Detail</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <h1 class="logo">JOLIE</h1>
+        </div>
+        <nav class="header-nav">
+            <ul class="nav-list">
+                <li class="nav-item active">
+                    <a href="index.html" class="nav-link">MAP</a>
+                </li>
+                <li class="nav-item">
+                    <a href="path.html" class="nav-link">Path</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#address-story" class="nav-link">Address Story</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content detail-content">
+        <div class="detail-container">
+            <!-- Left Section - Image -->
+            <div class="detail-left">
+                <div class="image-wrapper">
+                    <img id="detail-main-image" src="" alt="" class="detail-image">
+                    <div class="location-marker" id="location-marker">
+                        <img src="images/icon-adderss.png" alt="Location Marker" class="marker-icon">
+                        <span id="marker-number" class="marker-number"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section - Content -->
+            <div class="detail-right">
+                <div class="content-section">
+                    <h2 class="section-title">Facts to Tell:</h2>
+                    <ul id="facts-list" class="facts-list">
+                        <!-- Facts will be loaded dynamically -->
+                    </ul>
+                </div>
+
+                <div class="action-section">
+                    <div id="stop-button" class="stop-button"></div>
+                </div>
+
+                <div class="content-section" id="question-section">
+                    <h2 class="section-title">Question/Activity:</h2>
+                    <ul id="question-list" class="facts-list">
+                        <!-- Question will be loaded dynamically -->
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">Ask:</h2>
+                    <ul id="ask-list" class="facts-list">
+                        <!-- Ask will be loaded dynamically -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // 动态加载内容
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const locationId = urlParams.get('id');
+
+            if (locationId && locationsData[locationId]) {
+                const data = locationsData[locationId];
+
+                // 更新页面标题
+                document.title = data.title + ' - Tour Guide';
+
+                // 更新图片和标记
+                $('#detail-main-image').attr('src', data.image).attr('alt', data.alt);
+                $('#marker-number').text(data.marker.number);
+                
+                // 设置标记位置 - 将pxtovw字符串转换为实际值
+                const topValue = data.marker.top.replace('pxtovw(', '').replace(')', '');
+                const rightValue = data.marker.right.replace('pxtovw(', '').replace(')', '');
+                
+                $('#location-marker').css({
+                    top: pxtovwJs(parseInt(topValue)),
+                    right: pxtovwJs(parseInt(rightValue))
+                });
+
+                // 更新事实列表
+                const factsList = $('#facts-list');
+                factsList.empty();
+                data.facts.forEach(fact => {
+                    factsList.append(`<li>${fact}</li>`);
+                });
+
+                // 更新问题/活动
+                const questionList = $('#question-list');
+                const questionSection = $('#question-section');
+                questionList.empty();
+                if (data.question) {
+                    questionList.append(`<li>${data.question}</li>`);
+                    questionSection.show();
+                } else {
+                    questionSection.hide();
+                }
+
+                // 更新Ask部分
+                const askList = $('#ask-list');
+                const askSection = $('.content-section').last(); // Ask部分
+                askList.empty();
+                if (data.ask) {
+                    askList.append(`<li>${data.ask}</li>`);
+                    askSection.show();
+                } else {
+                    askSection.hide();
+                }
+
+                // 更新按钮
+                $('#stop-button').text(data.buttonText);
+            } else {
+                console.error('Location data not found for ID:', locationId);
+                // 如果没有找到数据，重定向到首页
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
