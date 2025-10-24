@@ -90,10 +90,10 @@
         $(document).ready(function() {
             $('.path-point').on('click', function() {
                 const locationId = $(this).data('location-id');
-                // if (locationId) {
-                //     // 跳转到详情页面，传递位置ID
-                //     window.location.href = `detail.html?id=${locationId}`;
-                // }
+                if (locationId) {
+                    // 跳转到address-story页面，传递位置ID
+                    window.location.href = `address-story.html?id=${locationId}`;
+                }
             });
         });
     </script>
