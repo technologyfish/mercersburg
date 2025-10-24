@@ -57,7 +57,7 @@ body {
   .logo {
     color: #000;
     font-family: 'Anitto', Arial, sans-serif;
-    font-size: pxtovw(60);
+    font-size: pxtovw(38);
     font-weight: bold;
     letter-spacing: pxtovw(2);
   }
@@ -85,6 +85,12 @@ body {
     &.active .nav-link {
       color: #000;
       font-weight: bold;
+    }
+
+    .nav-link.disabled {
+      color: #AFABAB;
+      cursor: default;
+      pointer-events: none;
     }
   }
 }

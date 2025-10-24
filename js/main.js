@@ -164,7 +164,7 @@ $(document).ready(function() {
         const href = $(this).attr('href');
         
         // 如果是页面链接，直接跳转
-        if (href === 'index.html' || href === 'path.html' || href === 'address-story.html') {
+        if (href === 'index.html' || href === 'path.html') {
             // 移除所有active类
             $('.nav-item').removeClass('active');
             // 为当前点击的导航项添加active类
@@ -192,8 +192,8 @@ $(document).ready(function() {
         const locationId = $(this).data('location-id');
         
         if (locationId && locationsData[locationId]) {
-            // 跳转到详情页面，传递位置ID
-            window.location.href = `detail.html?id=${locationId}`;
+            // 跳转到address-story页面，传递位置ID
+            window.location.href = `address-story.html?id=${locationId}`;
         } else {
             // 如果没有配置数据，显示默认信息
             const location = $(this).data('location');

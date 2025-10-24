@@ -32,7 +32,7 @@ body {
 .header-left .logo {
   color: #000;
   font-family: "Anitto", Arial, sans-serif;
-  font-size: 1.5353121801vw;
+  font-size: 0.9723643808vw;
   font-weight: bold;
   letter-spacing: 1px;
 }
@@ -55,6 +55,11 @@ body {
 .header-nav .nav-item.active .nav-link {
   color: #000;
   font-weight: bold;
+}
+.header-nav .nav-item .nav-link.disabled {
+  color: #AFABAB;
+  cursor: default;
+  pointer-events: none;
 }
 
 .main-content {
