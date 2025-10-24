@@ -1,4 +1,10 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Anitto";
+  src: url("../font/Anitto.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +15,9 @@ body {
   font-family: "Arial", sans-serif;
   background-color: #f5f5f5;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .header {
@@ -22,7 +31,8 @@ body {
 
 .header-left .logo {
   color: #000;
-  font-size: 1.0235414534vw;
+  font-family: "Anitto", Arial, sans-serif;
+  font-size: 1.5353121801vw;
   font-weight: bold;
   letter-spacing: 1px;
 }
@@ -137,6 +147,11 @@ body {
   width: 3.8382804504vw;
   height: 3.8382804504vw;
   z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.location-marker:hover {
+  transform: scale(1.1);
 }
 
 .marker-icon {
@@ -361,6 +376,47 @@ body {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
+}
+.footer {
+  background: #f5f5f5;
+  padding: 2.0470829069vw 0;
+  text-align: center;
+  position: relative;
+  margin-top: auto;
+}
+.footer .footer-content {
+  position: relative;
+  display: inline-block;
+}
+.footer .footer-oval {
+  border-radius: 50%;
+  padding: 1.5353121801vw 3.0706243603vw;
+  display: inline-block;
+  position: relative;
+  min-width: 20.4708290686vw;
+  height: 4.0941658137vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer .footer-text {
+  color: #c0c0c0;
+  font-size: 0.8188331627vw;
+  font-weight: normal;
+  letter-spacing: 0.1023541453vw;
+  text-align: center;
+  margin: 0;
+}
+
+.address-story-content {
+  margin-top: 0vw;
+  padding: 5.1177072671vw 5.6294779939vw;
+  min-height: calc(100vh - 5.1177072671vw);
+  background: white;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=style.css.map */

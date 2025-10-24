@@ -164,7 +164,7 @@ $(document).ready(function() {
         const href = $(this).attr('href');
         
         // 如果是页面链接，直接跳转
-        if (href === 'index.html' || href === 'path.html') {
+        if (href === 'index.html' || href === 'path.html' || href === 'address-story.html') {
             // 移除所有active类
             $('.nav-item').removeClass('active');
             // 为当前点击的导航项添加active类

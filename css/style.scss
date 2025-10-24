@@ -4,6 +4,14 @@ $designVwSize: 39.08;
 // 引入math模块
 @use "sass:math";
 
+// 字体定义
+@font-face {
+  font-family: 'Anitto';
+  src: url('../font/Anitto.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 // pxToVw 转换函数
 @function pxtovw($pxz) {
   @if $pxz == -2 {
@@ -30,6 +38,9 @@ body {
   font-family: 'Arial', sans-serif;
   background-color: #f5f5f5;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 // Header样式
@@ -45,7 +56,8 @@ body {
 .header-left {
   .logo {
     color: #000;
-    font-size: pxtovw(40);
+    font-family: 'Anitto', Arial, sans-serif;
+    font-size: pxtovw(60);
     font-weight: bold;
     letter-spacing: pxtovw(2);
   }
@@ -174,6 +186,12 @@ body {
   width: pxtovw(150);
   height: pxtovw(150);
   z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .marker-icon {
@@ -408,4 +426,50 @@ body {
   }
 }
 
+// Footer样式
+.footer {
+  background: #f5f5f5;
+  padding: pxtovw(80) 0;
+  text-align: center;
+  position: relative;
+  margin-top: auto;
+
+  .footer-content {
+    position: relative;
+    display: inline-block;
+  }
+
+  .footer-oval {
+    border-radius: 50%;
+    padding: pxtovw(60) pxtovw(120);
+    display: inline-block;
+    position: relative;
+    min-width: pxtovw(800);
+    height: pxtovw(160);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-text {
+    color: #c0c0c0;
+    font-size: pxtovw(32);
+    font-weight: normal;
+    letter-spacing: pxtovw(4);
+    text-align: center;
+    margin: 0;
+  }
+}
+
+// Address Story页面样式
+.address-story-content {
+  margin-top: pxtovw(0);
+  padding: pxtovw(200) pxtovw(220);
+  min-height: calc(100vh - pxtovw(200));
+  background: white;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 

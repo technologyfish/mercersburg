@@ -21,7 +21,7 @@
                     <a href="path.html" class="nav-link">Path</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#address-story" class="nav-link">Address Story</a>
+                    <a href="address-story.html" class="nav-link">Address Story</a>
                 </li>
             </ul>
         </nav>
@@ -70,6 +70,15 @@
             </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-oval">
+                <p class="footer-text">ALL RIGHTS RESERVED 2025. JOLIE.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/main.js"></script>
@@ -129,6 +138,11 @@
 
                 // 更新按钮
                 $('#stop-button').text(data.buttonText);
+                
+                // 添加地图标记点击事件，跳转到address-story页面
+                $('#location-marker').on('click', function() {
+                    window.location.href = 'address-story.html';
+                });
             } else {
                 console.error('Location data not found for ID:', locationId);
                 // 如果没有找到数据，重定向到首页
