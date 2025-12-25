@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities & Events - Historic Mercersburg</title>
+    <link rel="stylesheet" href="css/style.css?v=1">
+    <link rel="stylesheet" href="js/swiper-lib/swiper-bundle.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <a href="./index.html" class="logo">
+                <img src="images/logo.png" alt="Word on the Street">
+            </a>
+        </div>
+        <nav class="header-nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="./index.html" class="nav-link">MAP</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./history.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./other_spots.html" class="nav-link">TownHistory</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="./activity.html" class="nav-link">FindYourOwnHistory</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="activity-content">
+        <!-- Module 1: Hero Section -->
+        <section class="module-hero">
+            <div class="module-container">
+                <h1 class="hero-main-title">Word on the street.</h1>
+                <p class="hero-subtitle">Discover the history all around you! There are three ways to get involved</p>
+            </div>
+        </section>
+
+        <!-- Module 2: Guided Tours -->
+        <section class="module-tours">
+            <div class="module-container">
+                <div class="tours-content">
+                    <div class="tours-text">
+                        <h2 class="module-title">Guided History Tours in Mercersburg</h2>
+                        <p class="module-text">Join me, Jolie Zhu, for a 45-minute tour of Mercersburg, 
+designed just for kids! We'll explore the streets, buildings, 
+and stories that make our town special.</p>
+                        <p class="module-email">Email <a href="mailto:wots.org@gmail.com">wots.org@gmail.com</a> for upcoming tour dates!</p>
+                    </div>
+                    <div class="tours-gallery">
+                        <div class="gallery-swiper-container">
+                            <div class="gallery-swiper swiper">
+                                <div class="swiper-wrapper" id="gallery-wrapper"></div>
+                            </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 3: Online Sessions -->
+        <section class="module-online">
+            <div class="module-container">
+                <div class="online-content">
+                    <div class="online-video">
+                        <div class="video-wrapper">
+                            <video id="activity-video" poster="">
+                                <source src="https://www.aizhong168.cn/1115.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay" id="video-overlay">
+                                <div class="play-button"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="online-text">
+                        <h2 class="module-title">Online History Sessions</h2>
+                        <p class="module-text">Can't make it in person?<br>
+No problem!<br>
+Join our online sessions where<br>
+we introduce Word on the Street,<br>
+teach why learning local histories is important,<br>
+and do fun activities. Kids can explore history<br>
+in their own homes by finding objects around<br>
+them that tell a story about their neighborhood</p>
+                        <p class="module-email">Email <a href="mailto:wots.org@gmail.com">wots.org@gmail.com</a><br>for online session info!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 4: Worksheets & Map -->
+        <section class="module-worksheets">
+            <div class="module-container">
+                <h2 class="module-title">Activity Worksheets & Interactive Map</h2>
+                <p class="module-text">Want to dig even deeper? Download our activity worksheet to explore your own local history. 
+Once filled out, your contributions can be added to our map by emailing <a href="mailto:wots.org@gmail.com">wots.org@gmail.com</a>
+to share a photo of your worksheet! Click on different parts of the map to see what other kids 
+have discovered about their local history!</p>
+                <div class="map-image-wrapper">
+                    <img src="images/cbt.png" alt="Interactive Map" class="map-image">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer home-footer">
+        <div class="footer-content">
+            <p class="footer-text-main">Preserving history, one building at a time</p>
+            <p class="footer-text-copyright">© 2025 Historic Mercersburg. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/swiper-lib/swiper-bundle.min.js"></script>
+    <script src="js/activity.js"></script>
+</body>
+</html>
+
+

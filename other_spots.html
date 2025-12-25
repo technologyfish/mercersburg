@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Spots - Historic Mercersburg</title>
+    <link rel="stylesheet" href="css/style.css?v=11">
+    <style>
+        /* ... existing styles ... */
+        .spot-header {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Align top to handle multiline text */
+        }
+        .spot-header-content {
+            flex: 1;
+            padding-right: 1rem;
+        }
+        .spot-title {
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: #D2691E;
+            margin: 0 0 0.5rem 0;
+            font-family: "Arial", sans-serif;
+        }
+        .spot-main-text {
+            font-size: 0.9375rem;
+            color: #333;
+            font-weight: bold;
+            line-height: 1.6;
+            margin-top: .8rem;
+            font-family: "Arial", sans-serif;
+        }
+        .spot-toggle-btn {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5px; /* Adjust alignment with title */
+        }
+        /* ... existing styles ... */
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+    <div class="header-left">
+        <a href="./index.html" class="logo">
+            <img src="images/logo.png" alt="Word on the Street">
+        </a>
+    </div>
+    <nav class="header-nav">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="./index.html" class="nav-link">MAP</a>
+            </li>
+            <li class="nav-item">
+                <a href="./history.html" class="nav-link">About</a>
+            </li>
+            <li class="nav-item active">
+                <a href="./other_spots.html" class="nav-link">TownHistory</a>
+            </li>
+            <li class="nav-item">
+                <a href="./activity.html" class="nav-link">FindYourOwnHistory</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main class="main-content">
+    <section class="other-spots-section">
+         <div class="town-intro-section1">
+             <h1 class="town-main-title">Mercersburg</h1>
+             <h2 class="town-intro-title">A brief introduction</h2>
+             <p class="town-intro-text">The village, which began as a trading center, mill, and tannery site in the mid-1700s, was originally owned by James Black.
+                 The town was later acquired by William Smith, Sr. in 1759, becoming Smith's Town, and was finally laid out and named Mercersburg
+                 in 1786 by William Smith, Jr., in honor of Revolutionary War General Hugh Mercer.
+                 The town contributed to history, being the birthplace of President James Buchanan
+                 and home to the renowned Mercersburg Academy, founded in 1899.</p>
+         </div>
+         <div class="town-intro-section">
+
+            
+            <h2 class="chapel-title">The Mercersburg Academy Chapel</h2>
+            <p class="chapel-text">This American Gothic Chapel, located on the Mercersburg Academy campus, was designed by 
+Ralph Adams Cram and built between 1924 and 1925. It features exquisite stained glass 
+windows and oak carvings that bear thistle and mae motifs as memorials to the men who lost 
+their lives in World War I. Carillon recitals on the forty-nine bell carillon in Barker Tower are 
+given weekly on Sundays at 3:00 P.M. when school is in session..</p>
+        </div>
+
+        <div class="spots-list" id="spots-list">
+            <!-- Spots will be loaded here -->
+        </div>
+    </section>
+</main>
+
+<footer class="footer home-footer">
+    <div class="footer-content">
+        <p class="footer-text-main">Preserving history, one building at a time</p>
+        <p class="footer-text-copyright">© 2025 Historic Mercersburg. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+    const spotsData = [
+        {
+            id: 1,
+            title: "The James Buchanan Log Cabin",
+            mainText: "This log cabin was relocated to The Mercersburg Academy campus from nearby Stony Batter, which is the birthplace of James Buchanan, the fifteenth President of the United States and the only President from Pennsylvania.",
+            didYouKnow: [
+                "This log cabin is a replica of James Buchanan’s actual birthplace (the original was at Stony Batter, near Mercersburg) and was moved to the Mercersburg Academy campus to preserve its history.",
+                "When Buchanan was born here in 1791, log cabins were a common frontier home—but most (like this one) had only 1-2 rooms for entire families!",
+                "Buchanan went on to become the only U.S. President born in Pennsylvania—making this cabin a unique piece of state history."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "Why do you think the academy chose to relocate this log cabin (instead of just building a new one) to honor Buchanan?" },
+                { q: "Question 2:", text: "How would your daily routine change if you lived in a 1-2 room cabin with no electricity or running water?" },
+                { q: "Question 3:", text: "What do you think this cabin tells us about life in Pennsylvania in the late 1700s?" }
+            ],
+            architecturalDetails: [
+                "The cabin uses hand-hewn logs (cut and shaped by hand, not machines) with chinked gaps (filled with mud/wood to block wind) — a classic frontier building technique.",
+                "Its gabled, sloped roof (simple and steep) was designed to shed rain/snow quickly, which was critical for rough weather on the frontier.",
+                "The cabin has small, unglazed windows (common for 1790s log homes) — they let in limited light but helped keep the space warm in winter."
+            ]
+        },
+        {
+            id: 2,
+            title: "5 North Main Street - McKinstry House",
+            mainText: "William McKinstry, an enterprising businessman and prominent builder from Belfast, Ireland, arrived in Mercersburg around 1796 and purchased a general store from James Buchanan Sr. In 1810, he designed and built this Georgian-influenced house as his residence and general store, and he also published the town's first newspaper, The Visitar, the precursor to The Mercersburg Journal. McKinstry House is considered Franklin County's oldest established industry.",
+            didYouKnow: [
+                "William McKinstry migrated to Mercersburg (c. 1796) from Belfast, Ireland, before establishing his business and home here.",
+                "The McKinstry House was a dual-purpose space: it housed both McKinstry’s general store (on the ground floor) and his personal residence (on the upper floors).",
+                "McKinstry launched The Visitar—Mercersburg’s first newspaper—from this building; it later became The Mercersburg Journal.",
+                "This 1810 structure holds the distinction of being Franklin County’s oldest established industry."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "How do you think living and running a general store in the same building (the McKinstry House) shaped William McKinstry’s daily schedule in the early 1800s?" },
+                { q: "Question 2:", text: "Why might The Visitar (the town’s first newspaper) have been a meaningful addition to Mercersburg when it was published from the McKinstry House?" },
+                { q: "Question 3:", text: "What skills do you think McKinstry needed to succeed as both a builder (designing his own house) and a businessman (running a store and a newspaper)?" }
+            ],
+            architecturalDetails: [
+                "The McKinstry House’s Georgian-influenced design features key early 19th-century elements:",
+                "A symmetrical facade (a signature of Georgian architecture), with evenly spaced windows flanking the central main entrance.",
+                "Multi-paned sash windows, which balanced natural light and privacy (a standard detail in colonial-era Georgian buildings).",
+                "A formal central entryway, likely trimmed with understated decorative molding (consistent with the style’s restrained elegance).",
+                "A mixed-use layout: the ground floor was configured for the general store, while upper levels served as residential space—blending work and home life in one structure."
+            ]
+        },
+        {
+            title: "11 North Main Street",
+            mainText: "Built in 1847 by James Carson, a friend of James Buchanan, this brick building replaced two log cabins and features unique eyebrow windows in the attic, which are typical of the Greek Revival style. This house is historically notable for having the first bake oven in town.",
+            didYouKnow: [
+                "🏠 This 1847 brick building replaced two older log cabins that previously occupied the site.",
+                "🤝 Its builder, James Carson, was a personal friend of James Buchanan (the 15th U.S. President, born near Mercersburg).",
+                "🍞 This house housed Mercersburg’s very first bake oven—transforming how local residents prepared bread and baked goods in the 1840s.",
+                "🪟 The attic’s \"eyebrow windows\" are a unique feature that anchors the structure to the Greek Revival architectural style."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "How might James Carson’s friendship with James Buchanan have shaped the significance or design choices of this 1847 house?" },
+                { q: "Question 2:", text: "What changes do you think the town’s first bake oven (in this house) brought to daily life in 1840s Mercersburg?" },
+                { q: "Question 3:", text: "Why do you think James Carson chose to replace two log cabins with a brick building—what benefits might brick have offered over log construction in the 1840s?" }
+            ],
+            architecturalDetails: [
+                "The 11 North Main Street house showcases key Greek Revival and 1840s architectural elements:",
+                "Eyebrow windows (attic level): These curved, low-profile windows (a signature of Greek Revival style) let natural light into the upper space while preserving the building’s neat, balanced facade.",
+                "Brick construction: This material replaced two log cabins, providing greater durability, fire resistance, and a more formal, permanent appearance than frontier log structures.",
+                "Subtle symmetrical proportions: Aligned with Greek Revival principles, the building’s layout and features reflect the style’s emphasis on orderly, balanced design."
+            ]
+        },
+        {
+            title: "39 North Main Street - The Creigh House",
+            mainText: "This Federal-style house, built in 1792, is named for the fourth Presbyterian minister, Thomas Creigh, D.D., who was a founder of Wilson College. The house features nine fireplaces and first served as a tavern before becoming a center for fashion and dancing, complete with a ballroom separated by a large door that could swing upward.",
+            didYouKnow: [
+                "🏛️ Built in 1792, this house is named for Thomas Creigh, D.D.—a Presbyterian minister who co-founded Wilson College.",
+                "🍻 It first served as a tavern before evolving into a local hub for fashion and dancing.",
+                "🔥 The house features nine fireplaces (a standout detail for 18th-century buildings, used to heat its multiple spaces).",
+                "🕺 Its ballroom includes a unique large door that could swing upward to open up the space for gatherings."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "How do you think the Creigh House’s shift from a tavern to a fashion/dancing center altered social life in 19th-century Mercersburg?" },
+                { q: "Question 2:", text: "What challenges might have come with maintaining nine fireplaces (for heating and daily use) in an 18th-century house like this?" },
+                { q: "Question 3:", text: "Why do you think the ballroom’s upward-swinging door was a practical design choice for hosting large events?" }
+            ],
+            architecturalDetails: [
+                "The Creigh House (1792) highlights Federal-style and 18th-century design elements:",
+                "Federal-style foundations: It likely features a symmetrical facade (a signature of the Federal style), typical of late 18th-century formal buildings.",
+                "Nine fireplaces: Strategically placed across the house to heat its various rooms—critical for comfort before central heating existed.",
+                "Upward-swinging ballroom door: A space-saving, functional design that let the ballroom expand or divide to fit the size of gatherings.",
+                "Adaptable layout: Its structure supported multiple uses (tavern → social hub), with flexible spaces (like the ballroom) to match changing community needs."
+            ]
+        },
+        {
+            title: "52 North Main Street",
+            mainText: "The land was purchased by William Smith from James Black, the town's first known settler, in 1759, and later Jacob McFarland built a brick \"Mansion Hotel\" here, which became a popular tavern. After the tavern burned, the McAfees constructed this ten-room Georgian Revival-style dwelling in the early twentieth century.",
+            didYouKnow: [
+                "🏡 The land for this address was purchased in 1759 by William Smith—from James Black, the first known settler of Mercersburg.",
+                "🍻 Later, Jacob McFarland built a brick \"Mansion Hotel\" here, which became a widely popular local tavern.",
+                "🔥 The original Mansion Hotel tavern was destroyed by a fire.",
+                "🛏️ In the early 1900s, the McAfees constructed the current ten-room dwelling on this site, designed in the Georgian Revival style."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "Why do you think the Mansion Hotel (operated as a tavern) became a popular gathering place in early Mercersburg?" },
+                { q: "Question 2:", text: "How might the fire that destroyed the original tavern have impacted the daily lives or social routines of Mercersburg’s residents at the time?" },
+                { q: "Question 3:", text: "What aspects of this ten-room Georgian Revival home do you think made it better suited for 20th-century living than the earlier tavern building?" }
+            ],
+            architecturalDetails: [
+                "The 52 North Main Street dwelling (early 1900s) embodies key Georgian Revival style and functional features:",
+                "A symmetrical facade (a defining trait of Georgian Revival design), lending the home a formal, balanced appearance.",
+                "A ten-room layout: Unlike the multi-purpose tavern it replaced, this design reflects 20th-century demand for separate, dedicated spaces (e.g., bedrooms, living areas).",
+                "Typical Georgian Revival details (likely including evenly spaced, multi-paned windows): These echo the orderliness of 18th-century Georgian architecture, adapted to fit early 1900s residential needs."
+            ]
+        },
+        {
+            title: "326 North Main Street",
+            mainText: "Showing the Georgian influence, this ten-room stone structure, known as \"Old Stone,\" was built in 1785 and enlarged in 1830 by Joseph Cowan, who ran a carpenter's shop in the backyard. The basement of the house served as the Mercersburg Savings Fund in the 1850s, and the property is complete with a smokehouse, a horse barn, an outhouse, and a well.",
+            didYouKnow: [
+                "🏰 \"Old Stone\" (this ten-room stone structure) was first built in 1785, then enlarged by Joseph Cowan in 1830.",
+                "🛠️ Cowan operated a carpenter's shop right in the backyard of this property.",
+                "🏦 In the 1850s, the house’s basement served as the Mercersburg Savings Fund (a local financial hub of the time).",
+                "🧺 The property includes original 18th–19th century outbuildings: a smokehouse, horse barn, outhouse, and well—all essential for daily life back then."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "Why do you think the basement of \"Old Stone\" was selected to house the Mercersburg Savings Fund in the 1850s, instead of a separate dedicated building?" },
+                { q: "Question 2:", text: "How would the smokehouse, horse barn, and well (on this property) have supported the daily routines of the people living here in the 1800s?" },
+                { q: "Question 3:", text: "How might Joseph Cowan’s backyard carpenter’s shop have helped with the 1830 enlargement of \"Old Stone\"?" }
+            ],
+            architecturalDetails: [
+                "\"Old Stone\" (326 North Main Street) combines 18th-century craftsmanship with Georgian design influences:",
+                "Georgian-influenced form: It likely incorporates subtle symmetry (a signature of Georgian style), matching the formal architectural trends of the late 1700s.",
+                "Durable stone construction: The 1785 stone structure offered better longevity, insulation, and fire resistance than the log/wood-frame buildings common in early Mercersburg.",
+                "1830 enlargement: Joseph Cowan’s expansion added space to the original ten-room layout, adapting the home to evolving household or functional needs (possibly leveraging his carpentry skills).",
+                "Functional outbuildings: The smokehouse (for food preservation), horse barn (for livestock/transport), and well (for water access) were period-appropriate additions that supported the main house’s daily operations."
+            ]
+        },
+        {
+            title: "16 North Main Street",
+            mainText: "Now, the Fendrick Library, this stone mansion was built in 1788 in the Georgian influence of native limestone by Robert Parker, who was appointed Collector of Excise for Franklin County. It features Georgian molding, finely carved fireplace mantels, and a wide plank door with original strap hinges leading to the passageway over the alley, retaining its original style and woodwork.",
+            didYouKnow: [
+                "🏛️ Built in 1788 as a stone mansion, this structure now serves as the Fendrick Library (repurposed from its original private residence use).",
+                "🔍 Its builder, Robert Parker, held the official role of Collector of Excise for Franklin County during his time.",
+                "🪨 The mansion was constructed using native limestone (local to the area), infused with Georgian architectural influences.",
+                "🚪 It retains original 18th-century details: a wide plank door with historic strap hinges, plus a passageway over the alley—along with its original style and woodwork."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "How do you think repurposing this 1788 stone mansion (from a private residence to the Fendrick Library) changed its role in connecting the Mercersburg community?" },
+                { q: "Question 2:", text: "What advantages might Robert Parker have seen in using local limestone (instead of other materials) to build this mansion in 1788?" },
+                { q: "Question 3:", text: "Why is preserving original details (like the strap-hinged door, fireplace mantels, and woodwork) important for understanding 18th-century Georgian architecture in this region?" }
+            ],
+            architecturalDetails: [
+                "This 1788 structure (now Fendrick Library) showcases key Georgian-influenced features:",
+                "Native limestone construction: The use of local stone reflects both practicality (access to materials) and the sturdy, formal aesthetic of Georgian-era architecture.",
+                "Georgian decorative elements: It includes refined Georgian molding and finely carved fireplace mantels—signature details of the style’s emphasis on elegance and symmetry.",
+                "Historic door & passageway: The wide plank door (fitted with original strap hinges) leads to a passageway over the alley, a functional yet distinctive design choice from the 1780s.",
+                "Preserved craftsmanship: Its original woodwork and architectural style remain intact, offering a well-preserved example of late 18th-century Georgian stone architecture in Mercersburg."
+            ]
+        },
+        {
+            title: "14 North Main Street - The Lane House",
+            mainText: "This Georgian architecture house was built in 1828 by Thomas Lane and was occupied by Elliott Lane, who married Jane Buchanan, the sister of President James Buchanan. The house is distinguished by a very unusual curved ceiling in the hallway, ten fireplace mantels, each with a different design, hand-carved woodwork, and a backyard springhouse with a Pennsylvania-type pump.",
+            didYouKnow: [
+                "🏡 Built in 1828 (in Georgian architectural style) by Thomas Lane, this house was later occupied by Elliott Lane.",
+                "👰 Elliott Lane was married to Jane Buchanan—sister of James Buchanan, the 15th President of the United States.",
+                "🌀 It features a rare, unusual curved ceiling in the hallway (a distinctive design choice for homes of the 1820s).",
+                "🔥 The house has ten fireplace mantels, each with a unique design (no two mantels match).",
+                "🪵 It retains intricate hand-carved woodwork, plus a backyard springhouse equipped with a Pennsylvania-type pump (a region-specific functional feature)."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "How might Elliott Lane’s marriage to Jane Buchanan (President James Buchanan’s sister) have raised the social profile or changed the use of this house in 19th-century Mercersburg?" },
+                { q: "Question 2:", text: "Why do you think the homeowners opted for ten uniquely designed fireplace mantels (instead of matching ones)? What does this choice suggest about their personal tastes or the house’s purpose?" },
+                { q: "Question 3:", text: "What construction challenges do you think 1820s builders faced when creating the unusual curved hallway ceiling (without modern tools or materials)?" }
+            ],
+            architecturalDetails: [
+                "The Lane House (1828) merges classic Georgian architecture with one-of-a-kind custom elements:",
+                "Georgian core design: Aligns with the style’s emphasis on formal, balanced proportions (a hallmark of early 19th-century residential architecture in the area).",
+                "Unusual curved hallway ceiling: A rare deviation from the typical flat ceilings of Georgian homes, adding a distinctive, eye-catching architectural flourish.",
+                "Ten unique fireplace mantels: Each mantel features a distinct design, showcasing skilled 1820s craftsmanship and personalized decorative vision.",
+                "Hand-carved woodwork: Intricate, custom wood details that reflect the meticulous artistry of the era.",
+                "Pennsylvania-type pump springhouse: A functional, region-specific outbuilding that supported daily water access and food preservation (a common feature in 19th-century Pennsylvania properties)."
+            ]
+        },
+        {
+            title: "23 West Seminary St. - Star Theater",
+            mainText: "This early 20th-century, Classical Revival style movie theater first showed silent films and was purchased by Frank Myers in 1927. During the Depression, admission to benefit movies was canned goods or other non-perishable foods to help supply soup kitchens.",
+            didYouKnow: [
+                "🎞️ Built in the early 1900s, this Classical Revival theater originally specialized in showing silent films—a dominant form of entertainment before the rise of \"talkies\" (sound films) in the late 1920s.",
+                "💰 Frank Myers purchased the Star Theater in 1927, just as the film industry was transitioning from silent to sound cinema.",
+                "🥫 During the Great Depression, the theater hosted \"benefit movies\" where admission was paid with canned goods or non-perishable foods—donations that helped stock local soup kitchens for those in need.",
+                "🏛️ Its Classical Revival style reflected the early 20th century’s trend of using grand, monumental architecture for public gathering spaces like theaters."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "How do you think the Star Theater’s \"canned food admission\" during the Depression strengthened community bonds in Mercersburg?" },
+                { q: "Question 2:", text: "What changes do you imagine the theater had to make to transition from showing silent films (with live music or subtitles) to sound films in the late 1920s/early 1930s?" },
+                { q: "Question 3:", text: "Why might early 20th-century communities like Mercersburg choose Classical Revival architecture for a theater—what message did this style send about the importance of the space?" }
+            ],
+            architecturalDetails: [
+                "The Star Theater (early 20th century) embodies key Classical Revival design principles, tailored for a public entertainment venue:",
+                "Symmetrical facade: A defining feature of Classical Revival architecture, with balanced windows, columns, or decorative elements that convey grandeur and formality.",
+                "Classical decorative motifs: Likely includes details like pilasters (flattened columns), entablatures (horizontal bands above columns), or a triangular pediment—all inspired by ancient Greek and Roman architecture.",
+                "Grand entrance: Designed to draw patrons with an imposing doorway, possibly framed by decorative molding or columns, reflecting the theater’s role as a special community destination.",
+                "Functional interior layout: Optimized for film viewing, with a sloped floor (to improve sightlines) and a large projection area—standard for early 20th-century movie theaters, even as technology shifted from silent to sound."
+            ]
+        },
+        {
+            title: "32 West Seminary St.",
+            mainText: "This lot once marked the western boundary of the town and was transferred to Marshall College in 1840. Built in the early 1850s, the log structure, showing Greek Revival and Gothic Revival influence, was once a schoolhouse, and a second story was added by Dr. Unger in 1880 for use as his home and office.",
+            didYouKnow: [
+                "🗺️ This lot once served as the western boundary of Mercersburg before its transfer to Marshall College in 1840.",
+                "🏫 Built in the early 1850s, the original log structure was designed to function as a schoolhouse.",
+                "🏠 In 1880, Dr. Unger added a second story to the building, transforming it into a combined residence and office for himself.",
+                "🏛️ Uniquely, the log structure blends two architectural revival styles: Greek Revival and Gothic Revival—a rare combination for 19th-century log buildings."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "Why might Marshall College have sought to acquire this lot (once the town’s western boundary) in 1840, and how could a schoolhouse on the property have supported the college’s mission?" },
+                { q: "Question 2:", text: "How do you think converting the single-story schoolhouse into a two-story home/office (in 1880) changed the building’s relationship to the surrounding neighborhood?" },
+                { q: "Question 3:", text: "What do you think inspired the choice to merge Greek Revival and Gothic Revival styles in a log schoolhouse? How might these two distinct styles have complemented or contrasted with each other?" }
+            ],
+            architecturalDetails: [
+                "The 32 West Seminary St. building (early 1850s, expanded 1880) is a unique blend of log construction and revival-era design:",
+                "Log structure foundation: The original 1850s core uses hewn logs (a practical, durable choice for rural 19th-century buildings), with chinked gaps for insulation—consistent with frontier-era craftsmanship.",
+                "Dual revival style influences: Greek Revival touches (subtle symmetry, clean horizontal lines) and Gothic Revival elements (pointed arches or delicate vertical detailing).",
+                "1880 second-story addition: Dr. Unger’s expansion likely preserved the building’s log exterior and revival-style cohesion, adding functional living/office space while maintaining architectural harmony.",
+                "Adaptive layout: The transition from single-story schoolhouse to two-story residence/office required reconfiguring interior spaces—balancing open areas (original schoolroom) with private rooms (bedrooms, office) in the new upper floor."
+            ]
+        },
+        {
+            title: "2-6 South Main St. - The Mansion House",
+            mainText: "Built around 1790 in the Italianate style, The Mansion House was used by Marshall College from 1840 to 1945 and has figured prominently in the town's history. Future president James Buchanan addressed a crowd in Center Square from the balcony in 1852.",
+            didYouKnow: [
+                "🏛️ Constructed around 1790, The Mansion House is an early example of the Italianate architectural style in Mercersburg—rare for rural Pennsylvania buildings of the late 18th century.",
+                "🎓 It was closely tied to Marshall College for over a century, serving the institution from 1840 to 1945 as a cornerstone of its campus and community presence.",
+                "🗣️ In 1852, James Buchanan (who would later become the 15th U.S. President) delivered a public address to a crowd in Center Square from the building’s balcony—cementing its role as a local landmark for civic gatherings.",
+                "📜 Its long history (over 230 years) and dual significance as a private residence and institutional space make it one of Mercersburg’s most historically prominent buildings."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "Given its 105-year association with Marshall College (1840–1945), what roles do you think The Mansion House might have served for the college (e.g., classrooms, administrative offices, faculty housing)? How could these uses have strengthened ties between the college and the town?" },
+                { q: "Question 2:", text: "Why do you think James Buchanan chose to speak from The Mansion House’s balcony in 1852, rather than another location in Mercersburg? What does this choice reveal about the building’s reputation or visibility in the mid-19th century?" },
+                { q: "Question 3:", text: "The Italianate style was not widely popular in the U.S. until the mid-19th century—yet The Mansion House was built around 1790. What might have inspired its builder to adopt this relatively uncommon style, and how does it reflect the builder’s tastes or access to architectural ideas?" }
+            ],
+            architecturalDetails: [
+                "The Mansion House (c. 1790) showcases key Italianate features adapted to late 18th-century rural Pennsylvania:",
+                "Italianate core characteristics: Likely includes a low-pitched roof with wide, overhanging eaves supported by decorative brackets (a signature of the style), paired with tall, narrow windows (often arched or rectangular with ornate surrounds) to maximize natural light.",
+                "Balcony with public visibility: The prominent balcony—used for Buchanan’s 1852 speech—was strategically positioned to face Center Square, designed for both aesthetic appeal and functional civic engagement.",
+                "Sturdy, enduring structure: Built to withstand over two centuries of use (including institutional occupancy), the building’s solid masonry or frame construction reflects the craftsmanship of late 18th-century builders, with materials chosen for durability.",
+                "Symmetrical or balanced facade: Aligned with Italianate principles, the exterior likely features a harmonious layout (e.g., centered entrance, evenly spaced windows) that conveys elegance and formality—fitting for a building that would later serve as a college fixture and public gathering spot."
+            ]
+        },
+        {
+            title: "12 South Main St. - First National Bank",
+            mainText: "Built in 1927, this Neo-Classical Revival style structure features an exterior of Indiana limestone with Mount Airy marble steps, and the remaining walls are Kittanning brick with a base and trim of concrete stone. The floor of the large \"public space\" inside, where business is still conducted, is silver-gray Tennessee marble.",
+            didYouKnow: [
+                "🏦 Completed in 1927, this building has served as the First National Bank for nearly a century and still conducts business in its original \"public space\" today.",
+                "🪨 It features a luxurious mix of regional and national stone materials: Indiana limestone (exterior), Mount Airy marble (steps), Kittanning brick (walls), and silver-gray Tennessee marble (interior public space floor).",
+                "🏛️ The Neo-Classical Revival style was a deliberate choice for banks in the early 20th century—its grand, classical aesthetic was designed to convey trust, stability, and permanence to customers.",
+                "🧱 Kittanning brick, used for the building’s walls, is named for a Pennsylvania town known for producing high-quality, durable brick in the early 1900s, reflecting a blend of local craftsmanship and national stone sourcing."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "Why do you think early 20th-century banks like this one prioritized expensive, high-quality materials (e.g., marble, limestone) in their construction? How did these choices influence public perception of the bank’s reliability?" },
+                { q: "Question 2:", text: "The building still uses its original silver-gray Tennessee marble floor in the public business space—what does this commitment to preserving the original interior suggest about the bank’s relationship to its history or the Mercersburg community?" },
+                { q: "Question 3:", text: "Neo-Classical Revival architecture draws inspiration from ancient Greek and Roman buildings, which were often used for government or civic spaces. Why might banks adopt this style instead of more residential or modern designs of the 1920s?" }
+            ],
+            architecturalDetails: [
+                "This 1927 Neo-Classical Revival bank is a masterclass in materials and classical design, tailored to its financial purpose:",
+                "Exterior material palette: Indiana limestone (facade), Mount Airy marble (steps), Kittanning brick (walls), and concrete stone base/trim.",
+                "Interior public space: Silver-gray Tennessee marble floor adds sophistication and durability.",
+                "Neo-Classical Revival hallmarks: Symmetrical facade, restrained decorative elements (e.g., simple moldings), and a design emphasizing openness and grandeur."
+            ]
+        },
+        {
+            title: "56-60 South Main St.",
+            mainText: "Built in 1850 by Andrew Coyle, this Greek Revival dwelling with a unique recessed entry stands where Hugh McConnell made pottery before moving to East Seminary Street. Known as the Rupley home, where Mrs. Rupley once conducted a school, the house retains its historic integrity and features Empire-style woodwork in its high-ceilinged rooms.",
+            didYouKnow: [
+                "🏡 Constructed in 1850 by Andrew Coyle, this dwelling was later known as the Rupley home and retains its full historic integrity over nearly two centuries.",
+                "🎨 Before the house was built, the site was home to Hugh McConnell’s pottery workshop—he later relocated his craft to East Seminary Street.",
+                "🏫 Mrs. Rupley once operated a school out of this residence, making it a multi-functional hub for education and family life in 19th-century Mercersburg.",
+                "🏛️ A rare blend of styles: the house is rooted in Greek Revival architecture but features elegant Empire-style woodwork in its high-ceilinged rooms.",
+                "🚪 Its most distinctive exterior trait is a unique recessed entry—a standout design choice for Greek Revival homes of the 1850s."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "Why do you think Andrew Coyle chose to build a Greek Revival dwelling on the site of Hugh McConnell’s former pottery workshop? How might the shift from a craft space to a residential/school building reflect changes in Mercersburg’s neighborhood in the 1850s?" },
+                { q: "Question 2:", text: "Mrs. Rupley’s school operated out of this private home—what advantages might a residential setting have offered for a 19th-century school, and how could it have impacted the learning experience for students?" },
+                { q: "Question 3:", text: "The house combines Greek Revival architecture (a style emphasizing classical symmetry) with Empire-style woodwork (known for ornate, decorative details). What does this mix of styles suggest about the tastes of the home’s original builders or occupants?" }
+            ],
+            architecturalDetails: [
+                "This 1850 Greek Revival dwelling (the Rupley home) merges classical design with distinctive and preserved period details:",
+                "Greek Revival core elements: Subtle symmetry, balanced facade, and focus on classical order.",
+                "Unique recessed entry: Adds depth and architectural interest while protecting the entrance.",
+                "Empire-style woodwork: High-ceilinged rooms feature ornate wood details like curved moldings and intricate baseboards.",
+                "Historic integrity: Retains original architectural fabric from 1850s.",
+                "Adaptable layout: Flexible interior accommodated both family life and a school."
+            ]
+        },
+        {
+            title: "405 South Main St. - The Mercersburg Inn",
+            mainText: "Formerly known as Prospect, this Colonial Revival-style mansion was the residence of the prominent tanner Harry W. Byron family and was built in 1909. It features a grand entry hall with wrought iron balustrades on two curved stairways, scagliola columns, mahogany paneling, and is notable for the Arts and Crafts style found in the sun room.",
+            didYouKnow: [
+                "🏡 Built in 1909, this Colonial Revival-style mansion was originally named \"Prospect\" and served as the private residence of the prominent local tanner, Harry W. Byron, and his family.",
+                "🎨 It uniquely blends two distinct design eras: the formal elegance of Colonial Revival architecture (dominant in the main structure) and the handcrafted warmth of Arts and Crafts style (showcased exclusively in the sun room).",
+                "🪜 The grand entry hall is a standout feature, boasting two curved stairways adorned with intricate wrought iron balustrades—an elaborate detail for early 20th-century residential architecture.",
+                "🪵 Luxurious period materials define its interior: scagliola columns (faux marble crafted to mimic natural stone), rich mahogany paneling, and handcrafted Arts and Crafts elements that reflect the era’s design diversity.",
+                "🏨 Today known as The Mercersburg Inn, the building has been repurposed from a private family home to a welcoming hospitality space while preserving its historic character."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "As a prominent local tanner, how might Harry W. Byron’s success in his trade influence his choice to build such an elaborate Colonial Revival mansion (with high-end materials like mahogany and scagliola) in 1909?" },
+                { q: "Question 2:", text: "Colonial Revival (known for classical symmetry and formality) and Arts and Crafts (valuing simplicity, natural materials, and handiwork) are stylistically distinct. Why do you think the architects or homeowners chose to combine them—specifically placing Arts and Crafts elements in the sun room?" },
+                { q: "Question 3:", text: "What adaptations do you imagine were needed to convert this private family residence into The Mercersburg Inn? How might the grand entry hall and sun room have been reimagined to serve hotel guests while honoring the building’s original design?" }
+            ],
+            architecturalDetails: [
+                "The Mercersburg Inn (1909) is a masterful fusion of Colonial Revival grandeur and Arts and Crafts intimacy:",
+                "Colonial Revival Core Features: Symmetrical facade, grand entry hall with curved stairways, scagliola columns, and mahogany paneling.",
+                "Arts and Crafts Sun Room: Focus on natural materials, exposed wood beams, simple design, and connection to outdoors.",
+                "Structural Cohesion: Balances grandeur of main house with intimacy of sun room."
+            ]
+        },
+        {
+            title: "101 South Main St.",
+            mainText: "Harry Spangler purchased this land, which was a garden, and built this two-story, common bond brick house in the Greek and Colonial Revival influences between 1820 and 1825. Frederick Waidlich later enlarged it, and years later, the \"Waidlich well,\" one of the five or six wells that supplied water to the town before 1912, was discovered during a sidewalk rebuild.",
+            didYouKnow: [
+                "🌷 Before 1820, this property was a garden—Harry Spangler purchased the land and transformed it into a residential home between 1820 and 1825.",
+                "🏗️ The two-story house features common bond brick construction (a traditional bricklaying pattern) and blends two architectural influences: Greek Revival and Colonial Revival.",
+                "📏 Later in its history, Frederick Waidlich expanded the original structure, adapting it to evolving needs while preserving its core character.",
+                "💧 During a sidewalk rebuild, the \"Waidlich well\" was discovered—one of only five or six wells that supplied drinking water to Mercersburg before 1912, making it a tangible relic of the town’s early infrastructure."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "Why do you think Harry Spangler chose to convert a garden into a brick house with both Greek and Colonial Revival influences? How might this choice reflect 1820s architectural trends or his personal vision for the property?" },
+                { q: "Question 2:", text: "Frederick Waidlich’s enlargement of the house likely added space or functionality—what changes (e.g., extra rooms, updated layouts) do you imagine he made, and how might those have served the needs of 19th-century residents?" },
+                { q: "Question 3:", text: "As one of Mercersburg’s few public water sources before 1912, how do you think the Waidlich well shaped the daily lives of nearby residents? What does its discovery during a sidewalk rebuild reveal about how the town’s landscape has changed over time?" }
+            ],
+            architecturalDetails: [
+                "This 1820–1825 residence is a thoughtful blend of practical construction and revival-era design:",
+                "Common bond brick construction: Durable and stable.",
+                "Dual revival style influences: Greek Revival (symmetry, clean lines) and Colonial Revival (multi-paned windows, centered entrance).",
+                "Frederick Waidlich’s enlargement: Harmonized with original structure.",
+                "Historical infrastructure relic: The Waidlich well represents early town water systems."
+            ]
+        },
+        {
+            title: "57 South Main Street",
+            mainText: "This Georgian-style house, built in the late 1700s, was enlarged in the 1800s by Captain Dick, who established a butcher shop with a slaughterhouse at the rear of the lot. The house is built in Flemish bond brick, has twin chimneys on either end, and features seven interior fireplaces and doors of the St. George's Cross design.",
+            didYouKnow: [
+                "🏛️ Constructed in the late 1700s, this Georgian-style house is one of Mercersburg’s oldest surviving examples of the style, defined by its symmetry and formal proportions.",
+                "🥩 In the 1800s, it was enlarged by Captain Dick, who established a full-service butcher shop and slaughterhouse at the rear of the property—blending residential and commercial use in a single lot.",
+                "🧱 The exterior features Flemish bond brickwork (a decorative and durable pattern of alternating full bricks and header bricks), a sought-after technique in late 18th-century Georgian architecture.",
+                "🔥 Inside, seven fireplaces provide warmth—an impressive number for a historic home—paired with unique St. George's Cross design doors (a distinctive decorative detail rarely seen in local residences).",
+                "🧨 Twin chimneys flank either end of the house, a signature of Georgian symmetry that also served a practical purpose: evenly distributing heat from the multiple fireplaces."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "Why do you think Captain Dick chose to build a butcher shop and slaughterhouse behind his Georgian-style residence? How might this combination of home and business have suited 19th-century small-town life in Mercersburg?" },
+                { q: "Question 2:", text: "Flemish bond brickwork is more labor-intensive than simpler patterns like common bond. What does the use of this intricate technique suggest about the original builder’s resources, craftsmanship, or desire for architectural distinction?" },
+                { q: "Question 3:", text: "The house’s seven interior fireplaces and twin chimneys were critical for heating before modern systems—what challenges do you imagine the residents faced in maintaining and using so many fireplaces (e.g., fuel, cleaning, safety)?" }
+            ],
+            architecturalDetails: [
+                "This late 18th-century Georgian house showcases timeless design and functional craftsmanship:",
+                "Georgian-style symmetry: Balanced facade, centered entrance, twin end chimneys.",
+                "Flemish bond brick construction: Decorative and durable pattern.",
+                "Twin end chimneys: Functional and aesthetic Georgian staple.",
+                "St. George's Cross design doors: Unique decorative motif.",
+                "19th-century enlargement: Preserved Georgian symmetry while adding commercial space at rear."
+            ]
+        },
+        {
+            title: "43 South Main Street",
+            mainText: "Mercersburg's first full-sized stone house, with foot-thick walls and ten operating fireplaces, was built in 1780 by Dr. William McGaw, a distinguished soldier and surgeon in the Revolutionary War who served with the esteem of General George Washington. Dr. McGaw settled in Mercersburg after the war and practiced medicine for forty years.",
+            didYouKnow: [
+                "🏰 Built in 1780, this is Mercersburg’s first full-sized stone house—a groundbreaking structure in the town’s early architectural history.",
+                "⚔️ Its builder, Dr. William McGaw, was a distinguished Revolutionary War soldier and surgeon who earned the esteem of General George Washington for his service.",
+                "🧱 The house features foot-thick stone walls—a testament to 18th-century craftsmanship and a design choice that provided exceptional durability and insulation.",
+                "🔥 It boasts ten operating fireplaces (still functional today), an impressive number for a late 18th-century residence, reflecting the need for efficient heating in a stone structure.",
+                "👨⚕️ After the Revolutionary War, Dr. McGaw settled in Mercersburg and practiced medicine here for forty years, making the house both a home and a community medical hub."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "As a respected Revolutionary War surgeon, why do you think Dr. McGaw chose to build a full-sized stone house with foot-thick walls instead of a more common log cabin or wood-frame structure? How might his military experience influence this decision?" },
+                { q: "Question 2:", text: "Ten operating fireplaces would have been essential for heating the stone house in the 1780s, but what practical challenges (e.g., fuel sourcing, maintenance, fire safety) do you imagine the McGaw family faced in using so many fireplaces daily?" },
+                { q: "Question 3:", text: "As Mercersburg’s first full-sized stone house, how do you think this building set a precedent for future construction in the town? What message might it have sent about the community’s growth and stability after the Revolutionary War?" }
+            ],
+            architecturalDetails: [
+                "This 1780 stone house is a masterclass in 18th-century functional design and military-influenced craftsmanship:",
+                "Full-sized stone construction: Signified permanence and status.",
+                "Foot-thick stone walls: Superior insulation and structural strength.",
+                "Ten operating fireplaces: Efficient heating integrated into stone walls.",
+                "18th-century frontier stonework: Irregular local stone bonded with mortar.",
+                "Functional layout: Accommodated both family life and medical practice."
+            ]
+        },
+        {
+            title: "25 South Main Street",
+            mainText: "Dating to the late 1700s, this stone residence has wide pine floors and was once heated by corner fireplaces in each room. The shed-roof barn at the rear was once a livery stable and later housed the town taxi, while the semi-attached log building to the right has been occupied by many businesses.",
+            didYouKnow: [
+                "🏡 Dating to the late 1700s, this stone residence is one of Mercersburg’s oldest surviving homes, retaining key period features after over two centuries.",
+                "🪵 It boasts original wide pine floors—a durable, sought-after material in late 18th-century construction, prized for its strength and natural warmth.",
+                "🔥 Each room was originally heated by corner fireplaces, a practical layout that maximized floor space while evenly distributing heat in the stone structure.",
+                "🐎 The rear shed-roof barn has a dual historical role: it first served as a livery stable (housing horses and carriages) and later became the town’s taxi garage—reflecting the shift from equine to automotive transportation.",
+                "🏪 The semi-attached log building to the right has been home to numerous businesses over the years, making it a versatile commercial fixture alongside the residential main house."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "How do you think the transition of the rear barn from a livery stable to a taxi garage reflects broader changes in transportation and daily life in Mercersburg over time?" },
+                { q: "Question 2:", text: "Corner fireplaces were a common design choice in late 1700s homes—what advantages might they have offered over fireplaces placed along interior walls, especially in a stone residence?" },
+                { q: "Question 3:", text: "The semi-attached log building has housed many businesses. What about its location (adjacent to a residential stone house on Main Street) made it a desirable spot for small-town commerce?" }
+            ],
+            architecturalDetails: [
+                "This late 1700s stone residence and its auxiliary structures embody 18th–19th century practicality and craftsmanship:",
+                "Stone residence core: Durable frontier-era construction.",
+                "Wide pine floors: Character and structural stability.",
+                "Corner fireplaces: Efficient space usage and heat distribution.",
+                "Shed-roof barn: Functional design for livery stable and later taxi garage.",
+                "Semi-attached log building: Versatile commercial space."
+            ]
+        },
+        {
+            title: "13 South Main Street",
+            mainText: "This Neo-Classical Revival style building, known as the brownstone building, was purchased in 1908 by the Board of Directors to be the First National Bank, with the Chambersburg Granite Company awarded the contract for stonework. The bank opened for business on February 1, 1909, with total assets of $22,232.84.",
+            didYouKnow: [
+                "🟤 Known locally as the brownstone building, this structure gets its nickname from the rich, reddish-brown sandstone (brownstone) used in its construction— a prized material for grand public buildings in the early 1900s.",
+                "🏦 It was purchased by the Board of Directors in 1908 specifically to serve as Mercersburg’s First National Bank, marking a formal expansion of the town’s financial infrastructure.",
+                "🪨 The stonework contract was awarded to the Chambersburg Granite Company, a regional firm whose craftsmanship ensured the building’s durability and classical aesthetic.",
+                "📅 The bank officially opened for business on February 1, 1909, with total initial assets of $22,232.84— a sum that reflected the economic needs of Mercersburg’s early 20th-century community.",
+                "🏛️ Its Neo-Classical Revival style was a deliberate choice for a bank: the style’s association with ancient Greek and Roman civic buildings was meant to convey trust, stability, and permanence to customers."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "Why do you think Neo-Classical Revival was such a popular style for banks like this one in the early 1900s? How might the building’s grand, classical design have influenced how residents perceived the safety of their money?" },
+                { q: "Question 2:", text: "The bank’s initial assets in 1909 were $22,232.84. How do you think this amount compares to the average income or property value of Mercersburg residents at the time, and what does it suggest about the town’s economic activity?" },
+                { q: "Question 3:", text: "The Board of Directors hired a regional firm (Chambersburg Granite Company) for the stonework instead of a national company. What benefits might this local partnership have brought to both the bank and the broader Mercersburg community?" }
+            ],
+            architecturalDetails: [
+                "This 1908 Neo-Classical Revival bank (the brownstone building) blends classical design principles with functional banking needs:",
+                "Brownstone exterior: Dense, weather-resistant sandstone conveying elegance and strength.",
+                "Neo-Classical Revival hallmarks: Symmetrical facade, restrained decorative elements, and grand scale.",
+                "Crafted stonework: Precise stone cutting and mortar jointing for structural stability.",
+                "Banking-specific functionality: Thick walls, large windows, and formal entryway."
+            ]
+        },
+        {
+            title: "5-9-11 South Main St.",
+            mainText: "The large stone house on the right was used by Mr. D. M. B. Shannon for his business for many years, and Dr. J. M. Kuhn also operated a drug store here. The remaining area, in the Italianate influence, was originally owned by Archibald Irwin and his wife Jane, who were the great-grandparents of President William Henry Harrison, and was also used by various small businesses, like a silversmith, clockmaker, and a saddler.",
+            didYouKnow: [
+                "👑 The Italianate-influenced portion of this property was originally owned by Archibald Irwin and his wife Jane—great-grandparents of William Henry Harrison, the 9th President of the United States.",
+                "🏪 The address has a long history of mixed commercial use: it housed a drug store (operated by Dr. J. M. Kuhn), a silversmith, a clockmaker, and a saddler, plus Mr. D. M. B. Shannon’s business in the large stone house on the right.",
+                "🧱 It features two distinct structural sections: a substantial stone house (right) and an Italianate-influenced wing (remaining area)—blending rugged practicality with decorative architectural flair.",
+                "🛠️ For decades, this site served as a hub for skilled trades and local commerce, reflecting the diverse small-business ecosystem that sustained 19th-century Mercersburg."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "How might the connection to President William Henry Harrison’s great-grandparents (Archibald and Jane Irwin) shape the historical significance of this property in Mercersburg?" },
+                { q: "Question 2:", text: "This address hosted a wide range of businesses—from a drug store to a silversmith and saddler. What about its location on South Main Street or its layout made it adaptable to such different trades?" },
+                { q: "Question 3:", text: "The property combines a utilitarian stone house with an Italianate-influenced section. Why do you think the original owners or subsequent users chose to blend these two distinct architectural approaches, and how might each section have served different needs?" }
+            ],
+            architecturalDetails: [
+                "This multi-use property (5-9-11 South Main St.) merges functional stone construction with Italianate charm:",
+                "Large Stone House (Right): Solid masonry for durability, suitable for secure businesses.",
+                "Italianate-Influenced Wing: Decorative brackets, tall narrow windows, light and airy for detailed work.",
+                "Adaptable Layout: Flexible interior spaces for various businesses.",
+                "Visual Cohesion: Combination of rugged stone and elegant Italianate elements."
+            ]
+        },
+        {
+            title: "32-34 E. Seminary St.",
+            mainText: "This residence once housed the McConnell pottery, which Hugh McConnell purchased in 1826 and ran until 1870, producing products of red clay and gray stone earthenware. His son, David, ran the operation until about 1885, and since then, the property has been the home of a publisher, a shoemaker, and an attorney.",
+            didYouKnow: [
+                "🏺 This property was home to McConnell pottery for nearly 60 years: Hugh McConnell purchased the operation in 1826 and ran it until 1870, with his son David continuing the business until around 1885.",
+                "🎨 The pottery specialized in crafting red clay and gray stone earthenware—practical, everyday items that would have been essential to 19th-century Mercersburg households.",
+                "🔄 After the pottery closed, the property underwent a dramatic shift in use, housing a diverse range of professionals: a publisher, a shoemaker, and an attorney.",
+                "🛠️ It stands as a tangible relic of Mercersburg’s 19th-century craft economy, transitioning from a industrial/artisanal space to a residential/professional hub over time.."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "How might the long-running McConnell pottery (1826–1885) have shaped the local community—both as a source of essential household goods and as a family-owned business passing from father to son?" },
+                { q: "Question 2:", text: "This property adapted from a pottery workshop to homes for a publisher, shoemaker, and attorney. What features of its layout or location do you think made it flexible enough to serve such different purposes?" },
+                { q: "Question 3:", text: "The decline of McConnell pottery by 1885 coincided with broader industrialization in the U.S. How might changes in manufacturing or consumer preferences have contributed to the end of the local pottery operation?" }
+            ],
+            architecturalDetails: [
+                "This property (32-34 E. Seminary St.) reflects its dual history as a craft workshop and residential/professional space:",
+                "Pottery-friendly features: Open interior spaces, tall windows for light.",
+                "Durable construction: Sturdy walls to withstand kiln heat and industrial wear.",
+                "Adaptable layout: Open floor plan allowed for easy conversion to residential/office use.",
+                "Practical exterior: Functional design blending into the neighborhood."
+            ]
+        },
+        {
+            title: "129 E. Seminary St. - United Church of Christ",
+            mainText: "The members of the Lutheran and Reformed congregations eventually outgrew earlier log and stone structures, leading to the erection of this imposing house of worship in 1845, featuring Greek Revival design with Gothic detailing. Marshall College and the Theological Seminary were established in 1835, and the church's Sunday School area was later used to care for wounded Civil War soldiers.",
+            didYouKnow: [
+                "⛪ Erected in 1845, this imposing house of worship was built to accommodate the growing Lutheran and Reformed congregations, who had outgrown their earlier log and stone structures.",
+                "🏛️ It uniquely blends Greek Revival design (a style associated with civic grandeur) with subtle Gothic detailing (traditionally linked to religious architecture)—a rare stylistic fusion for 19th-century churches in the region.",
+                "⚔️ During the Civil War, the church’s Sunday School area was repurposed to care for wounded soldiers, transforming the sacred space into a humanitarian hub.",
+                "🎓 Its construction followed the 1835 establishment of Marshall College and the Theological Seminary, making it a spiritual cornerstone for both the town and the academic community.",
+                "🪨 Replacing smaller, simpler log and stone buildings, its \"imposing\" scale reflected the congregations’ growth and their desire for a permanent, prominent place of worship."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "How might the joint decision of Lutheran and Reformed congregations to build a single, shared church (instead of separate buildings) have strengthened religious and community unity in 1840s Mercersburg?" },
+                { q: "Question 2:", text: "Greek Revival design (known for classical symmetry) and Gothic detailing (associated with medieval cathedrals) serve different architectural traditions. Why do you think the church’s designers combined these two styles, and what message might this blend have conveyed about the congregation’s identity?" },
+                { q: "Question 3:", text: "Repurposing the Sunday School area as a Civil War soldier care facility was a significant shift from the space’s original use. How do you think this adaptation impacted the church’s role in the community, and what challenges might the congregation have faced in balancing spiritual life with wartime humanitarian needs?" }
+            ],
+            architecturalDetails: [
+                "This 1845 United Church of Christ embodies a thoughtful fusion of Greek Revival grandeur and Gothic reverence:",
+                "Greek Revival Core Elements: Symmetrical facade, imposing scale, solid construction.",
+                "Gothic Detailing: Pointed-arch windows, decorative tracery, steeply pitched roof.",
+                "Functional Adaptability: Sunday School area converted to soldier care facility during Civil War."
+            ]
+        },
+        {
+            title: "101 E. Seminary St. - The United Methodist Church",
+            mainText: "A Society of the Methodist Episcopal Church was formed in 1822, and the erection of the present structure began in 1834. During the Civil War, the church basement was converted into a hospital to care for soldiers from both sides, and it also hosted the town's first united prayer meeting.",
+            didYouKnow: [
+                "⛪ The United Methodist Church traces its roots to a Methodist Episcopal Church Society formed in 1822, over a decade before the present structure’s construction began.",
+                "🛠️ Erection of the current building started in 1834, making it one of Mercersburg’s oldest continuously used religious structures.",
+                "⚔️ During the Civil War, the church’s basement was converted into a hospital that cared for soldiers from both sides of the conflict—reflecting a commitment to humanitarian aid over partisan division.",
+                "🙏 It hosted Mercersburg’s first united prayer meeting, serving as a unifying spiritual hub for the community beyond regular worship services.",
+                "🏥 The basement’s adaptable design allowed it to transition seamlessly from a storage or auxiliary space to a wartime medical facility, highlighting the church’s role as a flexible community resource."
+            ],
+            thinkAboutIt: [
+                { q: "Question 1:", text: "How might the church’s decision to host the town’s first united prayer meeting have fostered connection among Mercersburg residents, especially in a period when religious or social divisions might have existed?" },
+                { q: "Question 2:", text: "Caring for soldiers from both the Union and Confederacy in the church basement was an unusual choice during the Civil War. What values or community priorities do you think motivated this neutral humanitarian approach?" },
+                { q: "Question 3:", text: "The 1834 structure’s basement was practical for conversion into a hospital. What architectural features (e.g., size, access, structure) do you imagine made it well-suited for this wartime role, and how might those features have also served its original religious purpose?" }
+            ],
+            architecturalDetails: [
+                "This 1834 church embodies 19th-century religious architecture’s focus on functionality, community, and durability:",
+                "19th-century frontier church design: Simple, sturdy frame prioritizing longevity.",
+                "Adaptable basement space: Easy conversion to Civil War hospital.",
+                "Worship-focused interior: High ceilings and large windows.",
+                "Community-centric features: Flexible spaces for gatherings.",
+                "Durable construction: Withstood over 190 years of use."
+            ]
+        }
+    ];
+
+    $(document).ready(function() {
+        const listContainer = $('#spots-list');
+        
+        spotsData.forEach((spot, index) => {
+            let contentHtml = '';
+            
+            if (spot.didYouKnow) {
+                contentHtml += `
+                    <div class="spot-section-box did-you-know">
+                        <h4>Did You Know?</h4>
+                        <ul>
+                            ${spot.didYouKnow.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+            
+            if (spot.thinkAboutIt) {
+                contentHtml += `
+                    <div class="spot-section-box think-about-it">
+                        <h4>Think About It!</h4>
+                        ${spot.thinkAboutIt.map(item => `
+                            <div class="question-item">
+                                <strong>${item.q}</strong>
+                                ${item.text}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+            
+            if (spot.architecturalDetails) {
+                 contentHtml += `
+                    <div class="spot-section-box architectural-details">
+                        <h4>Architectural Details</h4>
+                        <ul>
+                            ${spot.architecturalDetails.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            // Check if this is the first item to be expanded by default
+            const isExpanded = index === 0;
+            const displayStyle = isExpanded ? 'display: block;' : '';
+            const toggleIcon = isExpanded ? 'images/icon-arrow-up.png' : 'images/icon-arrow-down.png';
+
+            const html = `
+                <div class="spot-item">
+                    <div class="spot-header" onclick="toggleSpot(this)">
+                        <div class="spot-header-content">
+                            <h3 class="spot-title">${spot.title}</h3>
+                            <p class="spot-main-text">${spot.mainText}</p>
+                        </div>
+                        <div class="spot-toggle-btn">
+                            <img src="${toggleIcon}" alt="Expand" class="spot-toggle-img">
+                        </div>
+                    </div>
+                    <div class="spot-content" style="${displayStyle}">
+                        ${contentHtml}
+                    </div>
+                </div>
+            `;
+            listContainer.append(html);
+        });
+    });
+
+    function toggleSpot(header) {
+        const item = $(header).closest('.spot-item');
+        const content = item.find('.spot-content');
+        const toggleImg = item.find('.spot-toggle-img');
+        
+        if (content.is(':visible')) {
+             content.slideUp();
+             toggleImg.attr('src', 'images/icon-arrow-down.png');
+        } else {
+             content.slideDown();
+             toggleImg.attr('src', 'images/icon-arrow-up.png');
+        }
+    }
+</script>
+</body>
+</html>
