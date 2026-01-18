@@ -7,122 +7,40 @@
     <link rel="stylesheet" href="css/style.css?v=11">
 </head>
 <body>
-
-<!-- Header -->
-<header class="header">
-    <div class="header-left">
-        <a href="./index.html" class="logo">
-            <img src="images/logo.png" alt="Word on the Street">
-        </a>
-
-    </div>
-    <nav class="header-nav">
-        <ul class="nav-list">
-            <li class="nav-item active">
-                <a href="./index.html" class="nav-link">MAP</a>
-            </li>
-
-            <li class="nav-item">
-                <a href="./history.html" class="nav-link">About</a>
-            </li>
-
-            <li class="nav-item">
-                <a href="./other_spots.html" class="nav-link">TownHistory</a>
-            </li>
-
-            <li class="nav-item">
-                <a href="./activity.html" class="nav-link">FindYourOwnHistory</a>
-            </li>
-        </ul>
-    </nav>
-</header>
+<style>
+    .moved-img{
+        margin: 120px 0 40px;
+    }
+    .moved-top{
+        width: 40%;
+        display: block;
+        margin: 0 auto;
+    }
+    .link-a{
+        color: #8c0e02;
+        line-height: 1.2;
+    }
+    .link-a a{
+        color: #8c0e02;
+    }
+    .logo{
+        margin-top: 30px;
+    }
+</style>
 
 <!-- Main Content -->
 <main class="main-content home-content">
-    <!-- Hero Section with Map Header -->
-<!--    <section class="hero-section" onclick="window.location.href='./history.html'">-->
-<!--        <img src="images/map-header-top.png" alt="Historic Mercersburg Map" class="hero-image">-->
-<!--    </section>-->
-
-    <!-- Treasure Map Section -->
-    <section class="treasure-map-section">
-        <div class="map-container">
-            <img src="images/cbt.png" alt="Mercersburg Tour Guide Map" class="treasure-map-image">
-
-            <!-- Map Icons positioned at specific locations -->
-            <!-- id=1: Mercersburg Academy Chapel -->
-            <div class="map-icon" style="top: 13.2%; left: 19%;" data-location-id="1">
-                <img src="images/icon-add.png" alt="Location Marker" class="icon-image">
-            </div>
-
-            <!-- id=3: Buchanan Hotel (位置对应 Buchanan Hotel) -->
-            <div class="map-icon" style="top: 35%; left: 39.7%;" data-location-id="2">
-                <img src="images/icon-add.png" alt="Location Marker" class="icon-image">
-            </div>
-
-            <!-- id=2: Harriet Lane House (位置对应 Harriet Lane House) -->
-            <div class="map-icon" style="bottom: 18.6%; left: 22%;" data-location-id="3">
-                <img src="images/icon-add.png" alt="Location Marker" class="icon-image">
-            </div>
-
-            <!-- id=4: Historic Post Office -->
-            <div class="map-icon" style="bottom: 29.8%; left: 53%;" data-location-id="4">
-                <img src="images/icon-add.png" alt="Location Marker" class="icon-image">
-            </div>
-
-            <!-- id=5: The Johnston Tavern -->
-            <div class="map-icon" style="bottom: 14.6%; right: 14%;" data-location-id="5">
-                <img src="images/icon-add.png" alt="Location Marker" class="icon-image">
-            </div>
-
-            <!-- id=6: Presbyterian Church -->
-            <div class="map-icon" style="top: 50%; right: 20%;" data-location-id="6">
-                <img src="images/icon-add.png" alt="Location Marker" class="icon-image">
-            </div>
-
-            <!-- id=8: Mercersburg Town Square (位置对应 Town Square) -->
-            <div class="map-icon" style="top: 24%; right: 18.8%;" data-location-id="8">
-                <img src="images/icon-add.png" alt="Location Marker" class="icon-image">
-            </div>
-
-            <!-- id=7: Irwin House / General Store (位置对应 Irwin House) -->
-            <div class="map-icon" style="top: 10%; left: 55%;" data-location-id="7">
-                <img src="images/icon-add.png" alt="Location Marker" class="icon-image">
-            </div>
+        <div class="moved-img">
+            <img src="images/1.png" alt="" class="moved-top">
         </div>
-    </section>
-
-    <!-- Historic Buildings Section -->
-    <section class="historic-buildings-section">
-        <h2 class="buildings-title">Word on the street.</h2>
-        <p class="buildings-subtitle">Helping kids discover the history hiding in glaces the glive</p>
-        <div class="mission-section">
-            <h3 class="mission-title">Our Mission</h3>
-            <p class="buildings-intro-text">We believe history isn't just found in textbooks or museums — it lives in our streets, 
-buildings, and neighborhoods. Too often, local history is overlooked or never taught, 
-especially to kids. When people don't know the stories of where they live, those stories can be lost. 
-Through research, short-form storytelling, and guided activities, 
-Word on the Street aims to make local history easier to access and understand. 
-The project also encourages kids to look more closely at their surroundings and 
-ask questions about where they live, helping them see that history isn't far away — it's right around them.</p>
+        <div class="link-a">
+            THIS PROJECT HAS BEEN RENAMED,AND<br/>THE UPDATED WEBSITE IS NOW AVAILABLE<br/>AT <a href="https://wordonthestreets.it.com">HTTPS://WORDONTHESTREETS.IT.COM</a>
         </div>
-
-        <h2 class="section-title-buildings">Historic Buildings</h2>
-
-        <!-- Buildings Grid -->
-        <div class="buildings-grid" id="buildings-grid">
-            <!-- Buildings will be loaded dynamically -->
+        <div class="logo">
+            <img src="images/logo.png" alt="" class="logo-img">
         </div>
-    </section>
 </main>
 
-<!-- Footer -->
-<footer class="footer home-footer">
-    <div class="footer-content">
-        <p class="footer-text-main">Preserving history, one building at a time</p>
-        <p class="footer-text-copyright">© 2025 Historic Mercersburg. All rights reserved.</p>
-    </div>
-</footer>
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/main.js"></script>
